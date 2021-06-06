@@ -33,7 +33,7 @@ public class GraphGenerator {
                 graph.nodes.put(from,new Node(from));
             }
             if (!graph.nodes.containsKey(to)) {
-                graph.nodes.put(from,new Node(to));
+                graph.nodes.put(to,new Node(to));
             }
 
             //拿到
