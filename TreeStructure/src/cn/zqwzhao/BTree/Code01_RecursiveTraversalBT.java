@@ -27,7 +27,7 @@ public class Code01_RecursiveTraversalBT {
 		if (head == null) {
 			return;
 		}
-		System.out.println(head.value);
+		System.out.print(head.value + " ");
 		pre(head.left);
 		pre(head.right);
 	}
@@ -37,7 +37,7 @@ public class Code01_RecursiveTraversalBT {
 			return;
 		}
 		in(head.left);
-		System.out.println(head.value);
+		System.out.print(head.value + " ");
 		in(head.right);
 	}
 
@@ -47,7 +47,7 @@ public class Code01_RecursiveTraversalBT {
 		}
 		pos(head.left);
 		pos(head.right);
-		System.out.println(head.value);
+		System.out.print(head.value + " ");
 	}
 
 	public static void main(String[] args) {
@@ -60,11 +60,11 @@ public class Code01_RecursiveTraversalBT {
 		head.right.right = new Node(7);
 
 		pre(head);
-		System.out.println("========");
+		System.out.println("\n========");
 		in(head);
-		System.out.println("========");
+		System.out.println("\n========");
 		pos(head);
-		System.out.println("========");
+		System.out.println("\n========");
 
 	}
 
