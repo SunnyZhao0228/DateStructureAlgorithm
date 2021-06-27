@@ -20,8 +20,6 @@ public class StackQueueTest001 {
         queue.offer(33);
         queue.offer(44);
         queue.offer(55);
-
-
         while(!queue.isEmpty()) {
            stack.push(queue.poll());
         }

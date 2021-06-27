@@ -28,6 +28,7 @@ public class RecursionTest0617 {
             System.out.println("max" + arr[0]);
         }
         System.out.println(getMax(arr,0,arr.length - 1));
+        System.out.println(Code08_GetMax.getMax(arr));
     }
 
     public static int getMax2(int[] arr,int m,int n) {

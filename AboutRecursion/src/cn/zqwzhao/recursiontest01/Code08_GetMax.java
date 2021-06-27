@@ -9,14 +9,16 @@ public class Code08_GetMax {
 
 	// arr[L..R]范围上求最大值
 	public static int process(int[] arr, int L, int R) {
-		if (L == R) { // arr[L..R]范围上只有一个数，直接返回，base case
+		if (L == R) { // arr[L..R]范围上只有一个数，直接返回
 			return arr[L];
 		}
-		//  L..mid  mid+1...R
 		// int mid = (L+R)/2
 		int mid = L + ((R - L) >> 1); // 中点
+		//  求(L..mid)上的最大值
 		int leftMax = process(arr, L, mid);
+		// 求 (mid+1...R)上的最大值
 		int rightMax = process(arr, mid + 1, R);
+		//返回他们两个中最大的
 		return Math.max(leftMax, rightMax);
 	}
 

@@ -69,6 +69,22 @@ public class LetCode20 {
 
         System.out.println(letCode20.isValid("1+(3+4)"));
         System.out.println(letCode20.isValid("{}()}"));
+        System.out.println(pattern("((3+4) +(2+9))"));
+
     }
 
+
+
+    public static boolean pattern(String str) {
+        //建立一个新的栈，然后遍历字符串的字符，进行比较
+        Stack<Character> stack = new Stack<Character>();
+        for(char c: str.toCharArray()){
+            if(c=='(')stack.push(')');
+            else if(c==')') {
+                if(stack.isEmpty()|| c != stack.pop())
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
 }

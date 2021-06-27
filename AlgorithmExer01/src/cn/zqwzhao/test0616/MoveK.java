@@ -49,8 +49,6 @@ public class MoveK {
             end--;
         }
     }
-
-
     private static void reverse(int[] array) {
         reverse(array, 0, array.length - 1);
 
