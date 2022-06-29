@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/GraphStructure/GraphStructure.iml" filepath="$PROJECT_DIR$/GraphStructure/GraphStructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/ListStructure/ListStructure.iml" filepath="$PROJECT_DIR$/ListStructure/ListStructure.iml" />
       <module fileurl="file://$PROJECT_DIR$/SortMethods/SortMethods.iml" filepath="$PROJECT_DIR$/SortMethods/SortMethods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StackQueue/StackQueue.iml" filepath="$PROJECT_DIR$/StackQueue/StackQueue.iml" />
       <module fileurl="file://$PROJECT_DIR$/TreeStructure/TreeStructure.iml" filepath="$PROJECT_DIR$/TreeStructure/TreeStructure.iml" />
     </modules>
   </component>

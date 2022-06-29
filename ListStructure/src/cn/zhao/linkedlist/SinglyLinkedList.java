@@ -5,6 +5,10 @@ package cn.zhao.linkedlist;
  * 单链表的插入、删除、查找操作；
  * 链表中存储的是int类型的数据；
  *
+ * 如果链表为空时，代码是否能正常工作？
+ * 如果链表只包含一个结点时，代码是否能正常工作？
+ * 如果链表只包含两个结点时，代码是否能正常工作？
+ * 代码逻辑在处理头结点和尾结点的时候，是否能正常工作？
  * @author zhaoqw
  * @date 2022/06/10
  */
@@ -104,8 +108,6 @@ public class SinglyLinkedList {
       newNode.next = p.next;
       p.next = newNode;
     }
-
-
   }
 
   /**
@@ -174,36 +176,159 @@ public class SinglyLinkedList {
     if (p == null || head == null) {
       return;
     }
+    if (p == head) {
+      head = head.next;
+    }
 
-    deleteByValue(p.getData());
+    Node q = head;
+    while(q != null && q.next != p) {
+      q = q.next;
+    }
+    q.next = q.next.next;
   }
 
+  /**
+   * 删除值为value的第一个节点
+   * 删除值为value的所有节点
+   *
+   * @param value
+   */
   public void deleteByValue(int value) {
+    if (head == null) {
+      return ;
+    }
+    Node p = head;
+    Node q = null;
+    while (p != null && p.getData() != value) {
+      q = p;
+      p = p.next;
+    }
+
+    // 没找到
+    if (p == null) {
+      return ;
+    }
+    // 头节点就是找到的第一个value
+    if (q == null) {
+      head = head.next;
+    } else {
+      q.next = q.next.next;
+    }
+
+    // 删除值为value的所有节点
+    /*
+       if (head != null && head.data == value) {
+       head = head.next;
+       }
+       Node pNode = head;
+       while (pNode != null) {
+       if (pNode.next.data == data) {
+       pNode.next = pNode.next.next;
+       continue;
+       }
+       pNode = pNode.next;
+       }
+     */
 
   }
 
   public void printAll() {
+    Node p = head;
+    while (p != null) {
+      System.out.print(p.data + " ");
+      p = p.next;
+    }
+    System.out.println();
   }
 
   //判断true or false
   public boolean TFResult(Node left, Node right) {
-    return false;
+    Node l  = left;
+    Node r = right;
+
+    boolean flag=true;
+    System.out.println("left_:"+l.data);
+    System.out.println("right_:"+r.data);
+    while(l != null && r != null) {
+      if (l.data == r.data) {
+        l = l.next;
+        r = r.next;
+      } else {
+        flag = false;
+        break;
+      }
+    }
+    System.out.println("什么结果！");
+    return flag;
   }
 
   //判断是否为回文
   public boolean palindrome() {
-    return false;
+    if (head == null) {
+      return false;
+    }else {
+      System.out.println("开始执行找中间节点! ");
+      Node p = head;
+      Node q = head;
+      if (p.next == null) {
+        System.out.println("只有一个元素!");
+        return true;
+      }
+
+      while (q.next != null && q.next.next !=null) {
+        p = p.next;
+        q = q.next.next;
+      }
+      System.out.println("中间节点" + p.getData());
+      System.out.println("开始执行奇数节点的回文判断");
+      Node leftLink = null;
+      Node rightLink = null;
+      if (q.next == null) {
+        rightLink = p.next;
+        leftLink = inverseLinkList(p).next;
+        System.out.println("左边第一个节点" + leftLink.getData());
+        System.out.println("右边第一个节点" + rightLink.getData());
+      } else {
+        System.out.println("发现是偶数个节点");
+        rightLink = p.next;
+        leftLink = inverseLinkList(p);
+      }
+      return TFResult(leftLink,rightLink);
+    }
   }
 
   //带结点的链表翻转
   public Node inverseLinkList_head(Node p) {
+    // Head为新建的头结点
+    Node linkHead = new Node(9999, null);
+    linkHead.next = p;
 
-    return null;
+    Node cur = p.next;
+    p.next = null;
+    Node next = null;
+    while (cur != null) {
+      next = cur.next;
+      cur.next = linkHead.next;
+      linkHead.next = cur;
+      cur = next;
+    }
+    return linkHead;
   }
 
   //无头结点的链表翻转
   public Node inverseLinkList(Node p) {
-    return null;
+    Node pre = null;
+    Node r = head;
+    System.out.println("z-------" + r.data);
+    Node next = null;
+    while (r != p) {
+      next = r.next;
+      r.next = pre;
+      pre = r;
+      r = next;
+    }
+    r.next = pre;
+    return r;
   }
 
   public static void main(String[] args) {
@@ -215,7 +340,7 @@ public class SinglyLinkedList {
     //int data[] = {1,2,5};
     //int data[] = {1,2,2,1};
     // int data[] = {1,2,5,2,1};
-    int data[] = {1,2,5,3,1};
+    int data[] = {1,2,3,5,5,3,2,1};
 
     for(int i =0; i < data.length; i++){
       //link.insertToHead(data[i]);
