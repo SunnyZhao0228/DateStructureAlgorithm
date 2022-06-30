@@ -5,7 +5,7 @@ package cn.zqwzhao.basicsort;
  * @createTime [2022-05-24]
  */
 public class BubbleSortDemo {
-    public static void insertSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
