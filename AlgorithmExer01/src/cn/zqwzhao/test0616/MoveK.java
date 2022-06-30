@@ -37,7 +37,6 @@ public class MoveK {
      * @param begin
      * @param end
      */
-
     private static void reverse(int[] array, int begin, int end) {
         int length = end - begin + 1;
         int half = length >> 1;
@@ -52,6 +51,53 @@ public class MoveK {
     private static void reverse(int[] array) {
         reverse(array, 0, array.length - 1);
 
+    }
+
+
+    public static void move(int[] array){
+        int i = 0;
+        int j = array.length-1;
+        while(i < j){
+            while(array[i]<0) i++; //从前往后找第一个>0的数
+            while(array[j]>0) j--; //从后往前找第一个<0的数
+            //找到就交换
+            /*array[i] = array[i]^array[j];
+            array[j] = array[i]^array[j];
+            array[i] = array[i]^array[j];*/
+
+             int temp =  array[i];
+             array[i] = array[j];
+             array[j] = temp;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, -1, -2, 3, -3, 4};
+        move(arr);
+        for (int i = 0; i< arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+        System.out.println(binarySearch(arr,-3));
+    }
+
+    //二分查找
+    public static  int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            //int mid = (right + left) / 2;
+            int mid = left + ((right - left) >> 1);
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] < target)
+                left = mid + 1;
+            else if (nums[mid] > target)
+                right = mid - 1;
+        }
+        System.out.println("没有找到");
+        return -1;
     }
 
 }
