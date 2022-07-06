@@ -3,8 +3,7 @@ package cn.zqwzhao.recursiontest01;
 /**
  *
  * @Auther: zhaoqw
- * @Date: 2021/6/17 - 06 - 17 - 20:18
- * @Description: cn.zqwzhao.recursiontest01
+ * @Date: 2021/6/17
  * @version: 1.0
  */
 public class RecursionTest0617 {

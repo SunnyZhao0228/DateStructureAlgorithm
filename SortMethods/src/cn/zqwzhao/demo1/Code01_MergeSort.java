@@ -37,10 +37,10 @@ public class Code01_MergeSort {
         //要么p1越界，要么p2越界，但是其中只能有一个越界
 
         while(p1 <= mid) {
-            help[i++] = arr[p1];
+            help[i++] = arr[p1++];
         }
         while(p2 <= R) {
-            help[i++] = arr[p2];
+            help[i++] = arr[p2++];
         }
         for (int j = 0; j < arr.length; j++) {
             arr[j] = help[j];
