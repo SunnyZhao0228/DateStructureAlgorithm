@@ -1,7 +1,7 @@
 package basic.exercise01;
 
 /**
- * 打印
+ * 打印一个数的
  *
  * @author [zqwzh]
  * @createTime [2022-05-24]
