@@ -42,39 +42,36 @@ public class Code01_MergeSort {
         while(p2 <= R) {
             help[i++] = arr[p2++];
         }
-        for (int j = 0; j < help.length; j++) {
-            arr[L + j] = help[j];
+        for (int j = 0; j < arr.length; j++) {
+            arr[j] = help[j];
         }
     }
 
 
-    //非递归归并排序
-    private static void mergeSort2(int[] arr) {
-        if (arr == null|| arr.length < 2) {
-            return ;
+    // 非递归方法实现
+    public static void mergeSort2(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
         }
         int N = arr.length;
-        //一组是2倍的mergeSize，
-        int mergeSize = 1; //当前有序的左组长度
-        while (mergeSize < N) {
+        // 步长
+        int mergeSize = 1;
+        while (mergeSize < N) { // log N
+            // 当前左组的，第一个位置
             int L = 0;
             while (L < N) {
-                if (mergeSize >= N - L) {
-                    break;
-                }
                 int M = L + mergeSize - 1;
                 int R = M + Math.min(mergeSize, N - M - 1);
                 merge(arr, L, M, R);
                 L = R + 1;
             }
-            // 防止溢出，假设数组长度N接近整数最大值，mergeSize * 2 的时候会溢出
+            // 防止溢出
             if (mergeSize > N / 2) {
                 break;
             }
             mergeSize <<= 1;
         }
     }
-
 
     // for test
     public static int[] generateRandomArray(int maxSize, int maxValue) {

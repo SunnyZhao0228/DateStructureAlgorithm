@@ -38,7 +38,7 @@ public class Code03ArrayImplQueue {
       }
       size--;
       int ans = arr[polli];
-      polli = nextIndex(polli)
+      polli = nextIndex(polli);
       return ans;
     }
 
