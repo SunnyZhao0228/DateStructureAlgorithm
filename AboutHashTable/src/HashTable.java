@@ -71,7 +71,7 @@ public class HashTable <K, V>{
     // 新增节点
     if (tmp.next == null) {
       tmp.next = new Entry<>(key, value, null);
-      size++;
+      this.size++;
       use++;
       // 动态扩容
       if (use >= table.length * LOAD_FACTOR)  {
@@ -99,7 +99,24 @@ public class HashTable <K, V>{
    * @param key
    */
   public void remove(K key) {
+    int index = hash(key);
+    Entry e = table[index];
+    if (e == null || e.next == null) {
+      return;
+    }
 
+    Entry pre;
+    Entry<K, V> headNode = table[index];
+    do{
+      pre = e;
+      e = e.next;
+      if (key == e.key) {
+        pre.next = e.next;
+        size --;
+        if (headNode.next == null) use--;
+        return ;
+      }
+    } while (e.next != null);
   }
 
   /**
@@ -109,6 +126,18 @@ public class HashTable <K, V>{
    * @return
    */
   public V get(K key) {
+    int index =  hash(key);
+    Entry<K, V> entry = table[index];
+    if (entry == null || entry.next == null) {
+      return null;
+    }
+
+    while(entry.next != null) {
+      entry = entry.next;
+      if (entry.key == key) {
+        return entry.value;
+      }
+    }
     return null;
   }
 
@@ -116,7 +145,26 @@ public class HashTable <K, V>{
    * 扩容
    */
   private void resize() {
+    Entry<K, V>[] oldTable = table;
+    table = (Entry<K, V>[]) new Entry[table.length * 2];
+    int use = 0;
+    for (int i = 0; i < oldTable.length; i++) {
+      if (oldTable[i] == null || oldTable[i].next == null) {
+        continue;
+      }
 
+      Entry<K, V> entry = oldTable[i];
+      while (entry.next != null) {
+        entry = entry.next;
+        int index = hash(entry.key);
+        if (table[index] == null) {
+          use ++;
+          // 创建哨兵节点
+          table[index] = new Entry<>(null, null, null);
+        }
+        table[index].next = new Entry<>(entry.key, entry.value, table[index].next);
+      }
+    }
   }
 
   /**

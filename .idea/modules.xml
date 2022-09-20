@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" filepath="$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/AboutMath/AboutMath.iml" filepath="$PROJECT_DIR$/AboutMath/AboutMath.iml" />
       <module fileurl="file://$PROJECT_DIR$/AboutRecursion/AboutRecursion.iml" filepath="$PROJECT_DIR$/AboutRecursion/AboutRecursion.iml" />
       <module fileurl="file://$PROJECT_DIR$/AboutSearch/AboutSearch.iml" filepath="$PROJECT_DIR$/AboutSearch/AboutSearch.iml" />
