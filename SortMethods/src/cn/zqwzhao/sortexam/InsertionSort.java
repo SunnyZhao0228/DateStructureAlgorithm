@@ -4,39 +4,25 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
+ * 插入排序
+ *
  * @author zhaoqw
  * @date 2023/01/11
  */
 public class InsertionSort implements IMutableSorter {
     @Override
-    public void sort(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int cur = arr[i];
+    public void sort(int[] A){
+        for(int i = 1; i < A.length; i++) {
+            // 将A[i] 插入在卡片0，到卡片i之间
+            // j代表抓到的牌，先放到最右侧，不断交换到对应的位置
+            int c = A[i];
             int j = i;
-            for(; j > 0 && arr[j - 1] > cur; j--) {
-                arr[j] = arr[j - 1];
+
+            for(; j > 0 && A[j-1] > c;j--) {
+                A[j] = A[j-1];
             }
-            arr[j] = cur;
+            A[j] = c;
         }
     }
 
-
-    public void sortTest(Class cls, int N) {
-        try {
-            Constructor constructor = cls.getConstructor();
-            Object instance = constructor.newInstance();
-            long start = System.currentTimeMillis();
-            if (instance instanceof IMutableSorter) {
-
-            }
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
