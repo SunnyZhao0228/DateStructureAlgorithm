@@ -7,10 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DateStructure-Basic" />
+        <module name="Algorithm-Test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Algorithm-Test" target="1.5" />
       <module name="ArrayStructure" target="11" />
+      <module name="DateStructure-Basic" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

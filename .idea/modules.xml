@@ -3,20 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" filepath="$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AboutMath/AboutMath.iml" filepath="$PROJECT_DIR$/AboutMath/AboutMath.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AboutRecursion/AboutRecursion.iml" filepath="$PROJECT_DIR$/AboutRecursion/AboutRecursion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AboutSearch/AboutSearch.iml" filepath="$PROJECT_DIR$/AboutSearch/AboutSearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AboutSort/AboutSort.iml" filepath="$PROJECT_DIR$/AboutSort/AboutSort.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AlgorithmExer01/AlgorithmExer01.iml" filepath="$PROJECT_DIR$/AlgorithmExer01/AlgorithmExer01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AlgorithmTest/AlgorithmTest.iml" filepath="$PROJECT_DIR$/AlgorithmTest/AlgorithmTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ArrayStructure/ArrayStructure.iml" filepath="$PROJECT_DIR$/ArrayStructure/ArrayStructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algorithm-Test.iml" filepath="$PROJECT_DIR$/Algorithm-Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DateStructure-Basic.iml" filepath="$PROJECT_DIR$/DateStructure-Basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/DateStructureAlgorithm.iml" filepath="$PROJECT_DIR$/DateStructureAlgorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GraphStructure/GraphStructure.iml" filepath="$PROJECT_DIR$/GraphStructure/GraphStructure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ListStructure/ListStructure.iml" filepath="$PROJECT_DIR$/ListStructure/ListStructure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SortMethods/SortMethods.iml" filepath="$PROJECT_DIR$/SortMethods/SortMethods.iml" />
       <module fileurl="file://$PROJECT_DIR$/StackQueue/StackQueue.iml" filepath="$PROJECT_DIR$/StackQueue/StackQueue.iml" />
-      <module fileurl="file://$PROJECT_DIR$/StringAlgorithm/StringAlgorithm.iml" filepath="$PROJECT_DIR$/StringAlgorithm/StringAlgorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TreeStructure/TreeStructure.iml" filepath="$PROJECT_DIR$/TreeStructure/TreeStructure.iml" />
     </modules>
   </component>
 </project>
