@@ -1,6 +1,8 @@
 package org.example.queue;
 
 /**
+ * 动态数组队列
+ *
  * @author zhaoqw
  * @date 2023/7/28
  */

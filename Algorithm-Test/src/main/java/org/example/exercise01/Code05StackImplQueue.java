@@ -27,8 +27,8 @@ public class Code05StackImplQueue {
         public Stack<Integer> stackPop;
 
         public TwoStackQueue() {
-            stackPop = new Stack<>();
-            stackPush = new Stack<>();
+            stackPop = new Stack<Integer>();
+            stackPush = new Stack<Integer>();
         }
 
         private void pushToPop() {

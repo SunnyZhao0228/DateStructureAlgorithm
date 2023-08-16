@@ -33,7 +33,6 @@ public class MergeSort implements IntegerSorter {
             help[i++] = arr[p1] <= arr[p2] ? arr[p1++]:arr[p2++];
         }
         //要么p1越界，要么p2越界，但是其中只能有一个越界
-
         while(p1 <= mid) {
             help[i++] = arr[p1++];
         }

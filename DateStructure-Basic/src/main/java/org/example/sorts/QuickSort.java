@@ -35,6 +35,4 @@ public class QuickSort implements ISorter<Integer>{
         left.addAll(right);
         return left;
     }
-
-
 }

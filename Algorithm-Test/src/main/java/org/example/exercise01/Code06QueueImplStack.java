@@ -18,8 +18,8 @@ public class Code06QueueImplStack {
         public Queue<T> help;
 
         public TwoQueueStack() {
-            this.queue = new LinkedList<>();
-            this.help = new LinkedList<>();
+            this.queue = new LinkedList<T>();
+            this.help = new LinkedList<T>();
         }
 
         public void push(T value) {
@@ -56,8 +56,8 @@ public class Code06QueueImplStack {
 
     public static void main(String[] args) {
         System.out.println("test begin");
-        TwoQueueStack<Integer> myStack = new TwoQueueStack<>();
-        Stack<Integer> test = new Stack<>();
+        TwoQueueStack<Integer> myStack = new TwoQueueStack<Integer>();
+        Stack<Integer> test = new Stack<Integer>();
         int testTime = 1000000;
         int max = 1000000;
         for (int i = 0; i < testTime; i++) {

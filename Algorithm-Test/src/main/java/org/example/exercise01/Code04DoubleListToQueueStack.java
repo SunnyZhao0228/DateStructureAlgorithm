@@ -34,7 +34,7 @@ public class Code04DoubleListToQueueStack {
         public Node<T> tail;
 
         public void addFrommHead(T value) {
-            Node<T> cur = new Node<>(value);
+            Node<T> cur = new Node<T>(value);
             if (head == null) {
                 head = cur;
                 tail = cur;
@@ -46,7 +46,7 @@ public class Code04DoubleListToQueueStack {
         }
 
         public void addFormTail(T value) {
-            Node<T> cur = new Node<>(value);
+            Node<T> cur = new Node<T>(value);
             if (head == null) {
                 head = cur;
                 tail = cur;
@@ -117,7 +117,7 @@ public class Code04DoubleListToQueueStack {
     public static class MyQueue<T> {
         private DoubleEndsQueue<T> queue;
         public MyQueue() {
-            queue = new DoubleEndsQueue<>();
+            queue = new DoubleEndsQueue<T>();
         }
 
         public void push(T value) {
@@ -155,10 +155,10 @@ public class Code04DoubleListToQueueStack {
         int value = 10000;
         int testTimes = 100000;
         for (int i = 0; i < testTimes; i++) {
-            MyStack<Integer> myStack = new MyStack<>();
-            MyQueue<Integer> myQueue = new MyQueue<>();
-            Stack<Integer> stack = new Stack<>();
-            Queue<Integer> queue = new LinkedList<>();
+            MyStack<Integer> myStack = new MyStack<Integer>();
+            MyQueue<Integer> myQueue = new MyQueue<Integer>();
+            Stack<Integer> stack = new Stack<Integer>();
+            Queue<Integer> queue = new LinkedList<Integer>();
             for (int j = 0; j < oneTestDataNum; j++) {
                 int nums = (int) (Math.random() * value);
                 if (stack.isEmpty()) {
