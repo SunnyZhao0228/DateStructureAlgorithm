@@ -17,7 +17,7 @@ public class BTreeIteration {
                 {'h', -1, -1},
                 {'i', -1, -1},
         };
-        Tree<Integer> tree = new Tree<>(new BinNode[nodes.length]);
+        Tree<Integer> tree = new Tree<>(new Node[nodes.length]);
         intTree(nodes, tree);
         System.out.println("前序遍历: ");
         preOrder(tree.nodes[tree.root]);
@@ -33,7 +33,7 @@ public class BTreeIteration {
 
     public static void intTree(int[][] arr, Tree<Integer> tree) {
         for (int i = 0; i < arr.length; i++) {
-            tree.nodes[i] = new BinNode<>(-1, null, null);
+            tree.nodes[i] = new Node<>(-1, null, null);
         }
         tree.n = arr.length;
         tree.root = 0;
@@ -45,12 +45,12 @@ public class BTreeIteration {
         }
     }
 
-    static void printNode(BinNode<Integer> binNode) {
-        System.out.print(binNode.data + "  ");
+    static void printNode(Node<Integer> node) {
+        System.out.print(node.data + "  ");
     }
 
 
-    static void preOrder(BinNode<Integer> root) {
+    static void preOrder(Node<Integer> root) {
         if (root == null) {
             return ;
         }
@@ -59,7 +59,7 @@ public class BTreeIteration {
         preOrder(root.right);
     }
 
-    static void inOrder(BinNode<Integer> root) {
+    static void inOrder(Node<Integer> root) {
         if (root == null) {
             return ;
         }
@@ -68,7 +68,7 @@ public class BTreeIteration {
         preOrder(root.right);
     }
 
-    static void postOrder(BinNode<Integer> root) {
+    static void postOrder(Node<Integer> root) {
         if (root == null) {
             return ;
         }

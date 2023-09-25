@@ -5,7 +5,7 @@ package org.example.tree;
  * @date 2023/9/25
  */
 public class Tree<T> {
-    public BinNode<T>[] nodes;
+    public Node<T>[] nodes;
 
     int root;
 
@@ -14,15 +14,15 @@ public class Tree<T> {
     public Tree() {
     }
 
-    public Tree(BinNode<T>[] nodes) {
+    public Tree(Node<T>[] nodes) {
         this.nodes = nodes;
     }
 
-    public BinNode<T>[] getNodes() {
+    public Node<T>[] getNodes() {
         return nodes;
     }
 
-    public void setNodes(BinNode<T>[] nodes) {
+    public void setNodes(Node<T>[] nodes) {
         this.nodes = nodes;
     }
 
