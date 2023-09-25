@@ -1,43 +1,32 @@
 package org.example.tree;
 
 /**
+ * 二叉树基本实现
+ *
  * @author zhaoqw
  * @date 2023/8/21
  */
-public interface BinNode<T> {
-    T element();
+public class BinNode<T> {
+    // 节点数据对象
+    public T data;
 
-    void setElement(T t);
+    // 左指针
+    public BinNode<T> left;
 
-    /**
-     * 返回
-     * @return
-     */
-    BinNode left();
+    // 右指针
+    public BinNode<T> right;
 
-    /**
-     * 设置左孩子
-     *
-     * @return BinNode
-     */
-    BinNode setLeft(BinNode p);
+    public BinNode() {
+        this.data = null;
+        this.left = null;
+        this.right = null;
+    }
 
-    /**
-     * 返回右孩子
-     *
-     * @return BinNode
-     */
-    BinNode right();
+    public BinNode(T data, BinNode<T> left, BinNode<T> right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
 
-    /**
-     * 设置右孩子
-     *
-     * @return BinNode
-     */
-    BinNode setRight(BinNode p);
-
-
-    // 判断是否是叶子节点
-    boolean isLeaf();
 
 }
