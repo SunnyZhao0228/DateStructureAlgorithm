@@ -1,4 +1,6 @@
-package org.example.sorts;
+package org.example.sorts.integer;
+
+import org.example.sorts.integer.IntegerSorter;
 
 /**
  * 插入排序
@@ -6,7 +8,7 @@ package org.example.sorts;
  * @author zhaoqw
  * @date 2023/7/28
  */
-public class InsertionSort implements IntegerSorter{
+public class InsertionSort implements IntegerSorter {
     @Override
     public void sort(int[] arr) {
         for(int i = 1; i < arr.length; i++) {

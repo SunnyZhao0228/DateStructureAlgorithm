@@ -1,4 +1,4 @@
-package org.example.sorts;
+package org.example.sorts.integer;
 
 /**
  * 排序工具类

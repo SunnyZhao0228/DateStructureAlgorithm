@@ -1,4 +1,6 @@
-package org.example.sorts;
+package org.example.sorts.integer;
+
+import org.example.sorts.integer.IntegerSorter;
 
 /**
  * @author zhaoqw

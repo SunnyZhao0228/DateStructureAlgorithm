@@ -1,7 +1,6 @@
-package org.example.sorts;
+package org.example.sorts.integer;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * 冒泡排序
@@ -9,7 +8,7 @@ import java.util.Random;
  * @author zhaoqw
  * @date 2023/01/29
  */
-public class BubbleSort implements IntegerSorter{
+public class BubbleSort implements IntegerSorter {
 
     @Override
     public void sort(int[] arr) {
