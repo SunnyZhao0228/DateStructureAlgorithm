@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" filepath="$PROJECT_DIR$/AboutHashTable/AboutHashTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/Algorithm-Test.iml" filepath="$PROJECT_DIR$/Algorithm-Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/DateStructure-Basic.iml" filepath="$PROJECT_DIR$/DateStructure-Basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/DateStructureAlgorithm.iml" filepath="$PROJECT_DIR$/DateStructureAlgorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/StackQueue/StackQueue.iml" filepath="$PROJECT_DIR$/StackQueue/StackQueue.iml" />
     </modules>
   </component>
 </project>
