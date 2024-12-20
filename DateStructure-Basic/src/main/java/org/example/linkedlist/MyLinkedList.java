@@ -2,40 +2,103 @@ package org.example.linkedlist;
 
 import org.example.interfaces.AbstractList;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
 /**
+ * 双向链表
+ *
  * @author zhaoqw
  * @date 2024/12/19
  */
 public class MyLinkedList<E> extends AbstractList<E> {
-
+    private Node<E> first;
+    private Node<E> last;
     @Override
     public void clear() {
         size = 0;
+        first = last = null;
     }
 
     @Override
     public E get(int index) {
-        return null;
+        return node(index).element;
+    }
+
+    /**
+     * 更具索引找到某个节点
+     *
+     * @param index 索引
+     * @return 某节点
+     */
+
+    public Node<E> node(int index) {
+        rangeCheck(index);
+        if (index < (size >> 1)) {
+            Node<E> node = first; // 从头往后找
+            for (int i = 0; i < index; i++) {
+                node = node.next;
+            }
+            return node;
+        }
+        Node<E> node = last; // 从尾往前找
+        for (int i = size - 1; i > index ; i--) {
+            node = node.prev;
+        }
+        return node;
     }
 
     @Override
     public E set(int index, E element) {
-        return null;
+        Node<E> node = node(index);
+        E oldValue = node.element;
+        node.element = element;
+        return oldValue;
     }
 
     @Override
     public void add(int index, E element) {
+        rangeCheckForAdd(index);
+        // index = size = 0
+        if(index == size) { // 尾插
+            Node<E> oldLast = last;
+            last = new Node<>(element, oldLast, null);
+            if (oldLast == null) {
+                first = last;
+            } else {
+                oldLast.next = last;
+            }
+        } else {
+            Node<E> next = node(index);
+            Node<E> prev = next.prev;
+            Node<E> eNode = new Node<>(element, prev, next);
+            next.prev = eNode;
+            if (prev == null) { // pre为null 说明是头插
+                first = eNode;
+            } else {
+                prev.next = eNode;
+            }
+        }
 
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        rangeCheck(index);
+        Node<E> node = node(index);
+        Node<E> prev = node.prev;
+        Node<E> next = node.next;
+
+        if (prev == null) { // 删除头节点
+            first = next;
+        } else {
+            prev.next = next;
+        }
+
+        if (next == null) { // 删除尾节点
+            last = prev;
+        } else {
+            next.prev = prev;
+        }
+        size -- ;
+        return node.element;
     }
 
     @Override
@@ -43,14 +106,51 @@ public class MyLinkedList<E> extends AbstractList<E> {
         return 0;
     }
 
-    private class Node<E> {
+    private static class Node<E> {
         E element;
 
-        Node<E> next;
+        Node<E> prev; // 指向前驱
+        Node<E> next; // 指向后继
 
-        public Node(E element, Node<E> next) {
+        public Node(E element, Node<E> prev, Node<E> next) {
             this.element = element;
+            this.prev = prev;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            StringBuilder sb = new StringBuilder();
+            if(prev != null){
+                sb.append(prev.element);
+            }else{
+                sb.append("null");
+            }
+            sb.append("_").append(element).append("_");
+            if(next != null){
+                sb.append(next.element);
+            }else{
+                sb.append("null");
+            }
+
+            return sb.toString();
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder string = new StringBuilder();
+        string.append("[size=").append(size).append(", ");
+        Node<E> node = first;
+        for (int i = 0; i < size; i++) {
+            if (i != 0) {
+                string.append(", ");
+            }
+            string.append(node);
+            node = node.next;
+        }
+        string.append("]");
+        return string.toString();
     }
 }

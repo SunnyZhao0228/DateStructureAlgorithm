@@ -1,5 +1,7 @@
 package org.example.array;
 
+import org.example.domain.Person;
+
 import java.util.ArrayList;
 
 /**
@@ -30,5 +32,25 @@ public class ArrayTest {
         integerMyArrayList.add(0, 100);
         integerMyArrayList.add(0, 200);
         System.out.println(integerMyArrayList);
+
+        MyArrayList<Person> mList = new MyArrayList<Person>();
+
+        mList.add(new Person(10, "jack"));
+        mList.add(new Person(20, "rose"));
+        mList.add(null);
+        mList.add(null);
+
+        System.out.println("add()添加元素: " + mList);
+
+        System.out.println("get()获取元素: " + mList.get(0));
+
+        mList.set(0, new Person(99, "ghost"));
+        System.out.println("set()设置元素值: " + mList);
+
+        mList.remove(0);
+        System.out.println("remove()删除元素: " + mList);
+
+        mList.clear();
+        System.out.println("clear()清空数组: " + mList);
     }
 }
