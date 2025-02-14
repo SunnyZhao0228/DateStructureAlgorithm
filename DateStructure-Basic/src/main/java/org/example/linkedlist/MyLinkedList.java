@@ -11,10 +11,18 @@ import org.example.interfaces.AbstractList;
 public class MyLinkedList<E> extends AbstractList<E> {
     private Node<E> first;
     private Node<E> last;
+
+    public MyLinkedList() {
+        Node<E> sentinel = new Node<>(null);
+        this.first = sentinel;
+        this.last = sentinel;
+        this.size = 0;
+    }
+
     @Override
     public void clear() {
         size = 0;
-        first = last = null;
+        first = last = new Node<>(null);
     }
 
     @Override
@@ -56,15 +64,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
     @Override
     public void add(int index, E element) {
         rangeCheckForAdd(index);
-        // index = size = 0
-        if(index == size) { // 尾插
+        if (index == size) { // 尾插
             Node<E> oldLast = last;
             last = new Node<>(element, oldLast, null);
-            if (oldLast == null) {
-                first = last;
-            } else {
-                oldLast.next = last;
-            }
+            oldLast.next = last;
         } else {
             Node<E> next = node(index);
             Node<E> prev = next.prev;
@@ -76,7 +79,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
                 prev.next = eNode;
             }
         }
-
+        size++;
     }
 
     @Override
@@ -97,7 +100,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
         } else {
             next.prev = prev;
         }
-        size -- ;
+        size--;
         return node.element;
     }
 
@@ -112,6 +115,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
         Node<E> prev; // 指向前驱
         Node<E> next; // 指向后继
 
+        public Node(E element) {
+            this.element = element;
+        }
+
         public Node(E element, Node<E> prev, Node<E> next) {
             this.element = element;
             this.prev = prev;
@@ -120,20 +127,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
         @Override
         public String toString() {
-            StringBuilder sb = new StringBuilder();
-            if(prev != null){
-                sb.append(prev.element);
-            }else{
-                sb.append("null");
-            }
-            sb.append("_").append(element).append("_");
-            if(next != null){
-                sb.append(next.element);
-            }else{
-                sb.append("null");
-            }
-
-            return sb.toString();
+            return String.valueOf(element);
         }
     }
 
@@ -142,7 +136,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
     public String toString() {
         StringBuilder string = new StringBuilder();
         string.append("[size=").append(size).append(", ");
-        Node<E> node = first;
+        Node<E> node = first.next; // 从 first.next 开始，避免输出空节点
         for (int i = 0; i < size; i++) {
             if (i != 0) {
                 string.append(", ");
